@@ -42,7 +42,6 @@ class NoteButton extends StatelessWidget {
     const textStyle = TextStyle(fontWeight: FontWeight.bold);
 
     return GestureDetector(
-      // check if the asset is available before playing
       onTapDown: (_) => midiPlayer.playNote(note.midiNote),
       onTapUp: (_) => midiPlayer.stopNote(note.midiNote),
       onTapCancel: () => midiPlayer.stopNote(note.midiNote),

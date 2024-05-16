@@ -364,7 +364,7 @@ enum Scale {
 enum VirtualInsrument {
   NineFootGrand('Nine-foot Grand', 'assets/soundfonts/piano/nine-foot-grand-piano.sf2'),
   PianoAndStrings('Piano and Strings', 'assets/soundfonts/piano/piano-and-strings.sf2'),
-  RockOrgan('Rock Organ', 'assets/soundfonts/organ/rock-organ.sf2'),
+  RockOrgan('Rock Organ', 'assets/soundfonts/piano/rock-organ.sf2'),
   Harmonica('Harmonica', 'assets/soundfonts/harmonica/astral-harmonica.sf2'),
   Violin('Violin', 'assets/soundfonts/strings/violin.sf2');
 
