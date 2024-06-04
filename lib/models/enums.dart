@@ -362,8 +362,10 @@ enum Scale {
 }
 
 enum VirtualInsrument {
-  NineFootGrand('Nine-foot Grand', 'assets/soundfonts/piano/nine-foot-grand-piano.sf2'),
-  PianoAndStrings('Piano and Strings', 'assets/soundfonts/piano/piano-and-strings.sf2'),
+  NineFootGrand(
+      'Nine-foot Grand', 'assets/soundfonts/piano/nine-foot-grand-piano.sf2'),
+  PianoAndStrings(
+      'Piano and Strings', 'assets/soundfonts/piano/piano-and-strings.sf2'),
   RockOrgan('Rock Organ', 'assets/soundfonts/piano/rock-organ.sf2'),
   Harmonica('Harmonica', 'assets/soundfonts/harmonica/astral-harmonica.sf2'),
   Violin('Violin', 'assets/soundfonts/strings/violin.sf2');
@@ -374,8 +376,13 @@ enum VirtualInsrument {
 }
 
 enum Instrument {
-  Piano('Piano', 'assets/icons/piano.png', [VirtualInsrument.NineFootGrand, VirtualInsrument.PianoAndStrings, VirtualInsrument.RockOrgan]),
-  Harmonica('Harmonica', 'assets/icons/harmonica.png', [VirtualInsrument.Harmonica]),
+  Piano('Piano', 'assets/icons/piano.png', [
+    VirtualInsrument.NineFootGrand,
+    VirtualInsrument.PianoAndStrings,
+    VirtualInsrument.RockOrgan
+  ]),
+  Harmonica(
+      'Harmonica', 'assets/icons/harmonica.png', [VirtualInsrument.Harmonica]),
   Strings('Strings', 'assets/icons/cello.png', [VirtualInsrument.Violin]);
 
   const Instrument(this.name, this.iconAssetPath, this.virtualInstruments);

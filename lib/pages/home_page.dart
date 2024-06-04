@@ -56,38 +56,40 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        DropdownMenu(
-                          initialSelection: appState.virtualInstrument,
-                          onSelected: (virtualInstrument) {
-                            midiPlayer.loadSoundFont(
-                                virtualInstrument!.soundFontAssetPath);
-                            appState.setVirtualInstrument(virtualInstrument);
-                          },
-                          dropdownMenuEntries: appState
-                              .instrument.virtualInstruments
-                              .map<DropdownMenuEntry<VirtualInsrument>>(
-                                  (virtualInstrument) {
-                            return DropdownMenuEntry<VirtualInsrument>(
-                                value: virtualInstrument,
-                                label: virtualInstrument.name);
-                          }).toList(),
-                        ),
-                        const SizedBox(width: 20),
-                        DropdownMenu(
-                          initialSelection: appState.scale,
-                          onSelected: (scale) {
-                            appState.setScale(scale!);
-                          },
-                          dropdownMenuEntries: Scale.values
-                              .map<DropdownMenuEntry<Scale>>((scale) {
-                            return DropdownMenuEntry<Scale>(
-                                value: scale, label: scale.name);
-                          }).toList(),
-                        ),
-                      ],
+                    Flexible(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          DropdownMenu(
+                            initialSelection: appState.virtualInstrument,
+                            onSelected: (virtualInstrument) {
+                              midiPlayer.loadSoundFont(
+                                  virtualInstrument!.soundFontAssetPath);
+                              appState.setVirtualInstrument(virtualInstrument);
+                            },
+                            dropdownMenuEntries: appState
+                                .instrument.virtualInstruments
+                                .map<DropdownMenuEntry<VirtualInsrument>>(
+                                    (virtualInstrument) {
+                              return DropdownMenuEntry<VirtualInsrument>(
+                                  value: virtualInstrument,
+                                  label: virtualInstrument.name);
+                            }).toList(),
+                          ),
+                          const SizedBox(width: 20),
+                          DropdownMenu(
+                            initialSelection: appState.scale,
+                            onSelected: (scale) {
+                              appState.setScale(scale!);
+                            },
+                            dropdownMenuEntries: Scale.values
+                                .map<DropdownMenuEntry<Scale>>((scale) {
+                              return DropdownMenuEntry<Scale>(
+                                  value: scale, label: scale.name);
+                            }).toList(),
+                          ),
+                        ],
+                      ),
                     ),
                     const Expanded(child: Harmonica()),
                   ],
