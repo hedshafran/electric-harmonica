@@ -11,6 +11,7 @@ class Harmonica extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
+    final isLoading = appState.isLoading;
     final scale = appState.scale;
     final blowNotes = scale.blowNotes;
     final drawNotes = scale.drawNotes;
@@ -22,6 +23,12 @@ class Harmonica extends StatelessWidget {
         drawNote: drawNotes[index],
       ),
     );
+
+    if (isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
 
     return Expanded(
       child: Row(
