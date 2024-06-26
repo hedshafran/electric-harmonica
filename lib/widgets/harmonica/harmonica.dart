@@ -23,9 +23,11 @@ class Harmonica extends StatelessWidget {
       ),
     );
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: holes,
+    return Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: holes,
+      ),
     );
   }
 }

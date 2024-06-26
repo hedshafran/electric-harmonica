@@ -368,7 +368,10 @@ enum VirtualInsrument {
       'Piano and Strings', 'assets/soundfonts/piano/piano-and-strings.sf2'),
   RockOrgan('Rock Organ', 'assets/soundfonts/piano/rock-organ.sf2'),
   Harmonica('Harmonica', 'assets/soundfonts/harmonica/astral-harmonica.sf2'),
-  Violin('Violin', 'assets/soundfonts/strings/violin.sf2');
+  Violin('Violin', 'assets/soundfonts/strings/violin.sf2'),
+  Trumpet('Best Trumpet', 'assets/soundfonts/brass/best-trumpet.sf2'),
+  JLTrumpet('JL Trumpet', 'assets/soundfonts/brass/jl-trumpet.sf2'),
+  DCsMellotronFlute('DCs Mellotron Flute', 'assets/soundfonts/flute/dcs-mellotron-flute.sf2');
 
   const VirtualInsrument(this.name, this.soundFontAssetPath);
   final String name;
@@ -383,7 +386,9 @@ enum Instrument {
   ]),
   Harmonica(
       'Harmonica', 'assets/icons/harmonica.png', [VirtualInsrument.Harmonica]),
-  Strings('Strings', 'assets/icons/cello.png', [VirtualInsrument.Violin]);
+  Strings('Strings', 'assets/icons/cello.png', [VirtualInsrument.Violin]),
+  Trumpet('Trumpet', 'assets/icons/trumpet.png', [VirtualInsrument.Trumpet, VirtualInsrument.JLTrumpet]),
+  Mellotron('Mellotron', 'assets/icons/recorder.png', [VirtualInsrument.DCsMellotronFlute]);
 
   const Instrument(this.name, this.iconAssetPath, this.virtualInstruments);
   final String name;

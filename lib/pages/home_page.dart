@@ -50,49 +50,51 @@ class _HomePageState extends State<HomePage> {
                 });
               },
             ),
-            SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          DropdownMenu(
-                            initialSelection: appState.virtualInstrument,
-                            onSelected: (virtualInstrument) {
-                              midiPlayer.loadSoundFont(
-                                  virtualInstrument!.soundFontAssetPath);
-                              appState.setVirtualInstrument(virtualInstrument);
-                            },
-                            dropdownMenuEntries: appState
-                                .instrument.virtualInstruments
-                                .map<DropdownMenuEntry<VirtualInsrument>>(
-                                    (virtualInstrument) {
-                              return DropdownMenuEntry<VirtualInsrument>(
-                                  value: virtualInstrument,
-                                  label: virtualInstrument.name);
-                            }).toList(),
-                          ),
-                          const SizedBox(width: 20),
-                          DropdownMenu(
-                            initialSelection: appState.scale,
-                            onSelected: (scale) {
-                              appState.setScale(scale!);
-                            },
-                            dropdownMenuEntries: Scale.values
-                                .map<DropdownMenuEntry<Scale>>((scale) {
-                              return DropdownMenuEntry<Scale>(
-                                  value: scale, label: scale.name);
-                            }).toList(),
-                          ),
-                        ],
+            Expanded(
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            DropdownMenu(
+                              initialSelection: appState.virtualInstrument,
+                              onSelected: (virtualInstrument) {
+                                midiPlayer.loadSoundFont(
+                                    virtualInstrument!.soundFontAssetPath);
+                                appState.setVirtualInstrument(virtualInstrument);
+                              },
+                              dropdownMenuEntries: appState
+                                  .instrument.virtualInstruments
+                                  .map<DropdownMenuEntry<VirtualInsrument>>(
+                                      (virtualInstrument) {
+                                return DropdownMenuEntry<VirtualInsrument>(
+                                    value: virtualInstrument,
+                                    label: virtualInstrument.name);
+                              }).toList(),
+                            ),
+                            const SizedBox(width: 20),
+                            DropdownMenu(
+                              initialSelection: appState.scale,
+                              onSelected: (scale) {
+                                appState.setScale(scale!);
+                              },
+                              dropdownMenuEntries: Scale.values
+                                  .map<DropdownMenuEntry<Scale>>((scale) {
+                                return DropdownMenuEntry<Scale>(
+                                    value: scale, label: scale.name);
+                              }).toList(),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const Expanded(child: Harmonica()),
-                  ],
+                      const Expanded(child: Harmonica()),
+                    ],
+                  ),
                 ),
               ),
             ),

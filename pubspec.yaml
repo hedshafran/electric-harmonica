@@ -65,6 +65,8 @@ flutter:
   - assets/icons/piano.png
   - assets/icons/harmonica.png
   - assets/icons/cello.png
+  - assets/icons/trumpet.png
+  - assets/icons/recorder.png
 
   - assets/soundfonts/piano/nine-foot-grand-piano.sf2
   - assets/soundfonts/piano/piano-and-strings.sf2
@@ -73,6 +75,11 @@ flutter:
   - assets/soundfonts/harmonica/astral-harmonica.sf2
 
   - assets/soundfonts/strings/violin.sf2
+
+  - assets/soundfonts/brass/best-trumpet.sf2
+  - assets/soundfonts/brass/jl-trumpet.sf2
+
+  - assets/soundfonts/flute/dcs-mellotron-flute.sf2
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -14,13 +14,11 @@ class HarmonicaHole extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(7.0),
+    return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           NoteButton(note: blowNote),
-          const SizedBox(height: 10),
           NoteButton(note: drawNote),
         ],
       ),
@@ -28,7 +26,7 @@ class HarmonicaHole extends StatelessWidget {
   }
 }
 
-class NoteButton extends StatelessWidget {
+class NoteButton extends StatefulWidget {
   final Note note;
 
   const NoteButton({
@@ -37,23 +35,39 @@ class NoteButton extends StatelessWidget {
   });
 
   @override
+  State<NoteButton> createState() => _NoteButtonState();
+}
+
+class _NoteButtonState extends State<NoteButton> {
+  bool _isPressed = false;
+
+  @override
   Widget build(BuildContext context) {
     final midiPlayer = MidiPlayerManager();
     const textStyle = TextStyle(fontWeight: FontWeight.bold);
 
-    return GestureDetector(
-      onTapDown: (_) => midiPlayer.playNote(note.midiNote),
-      onTapUp: (_) => midiPlayer.stopNote(note.midiNote),
-      onTapCancel: () => midiPlayer.stopNote(note.midiNote),
-      child: Container(
-        width: 50,
-        height: 50,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
+    return Expanded(
+      child: GestureDetector(
+        onTapDown: (_) {
+          setState(() => _isPressed = true);
+          midiPlayer.playNote(widget.note.midiNote);
+        },
+        onTapUp: (_) {
+          setState(() => _isPressed = false);
+          midiPlayer.stopNote(widget.note.midiNote);
+        },
+        onTapCancel: () {
+          setState(() => _isPressed = false);
+          midiPlayer.stopNote(widget.note.midiNote);
+        },
+        child: Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: _isPressed ? Colors.grey.shade100 : Colors.white,
+            border: Border.all(color: Colors.grey),
+          ),
+          child: Text(widget.note.name, style: textStyle),
         ),
-        child: Text(note.name, style: textStyle),
       ),
     );
   }
