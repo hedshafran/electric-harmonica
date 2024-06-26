@@ -1,30 +1,25 @@
-import 'package:electric_harmonica/services/audio_player/audio_player.dart';
+import 'package:electric_harmonica/models/enums.dart';
+import 'package:electric_harmonica/services/midi_player/midi_player.dart';
 import 'package:flutter/material.dart';
 
 class HarmonicaHole extends StatelessWidget {
-  final String blowNoteAsset;
-  final String drawNoteAsset;
-  final String blowNoteName;
-  final String drawNoteName;
+  final Note blowNote;
+  final Note drawNote;
 
   const HarmonicaHole({
     super.key,
-    required this.blowNoteAsset,
-    required this.drawNoteAsset,
-    required this.blowNoteName,
-    required this.drawNoteName,
+    required this.blowNote,
+    required this.drawNote,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(7.0),
+    return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          NoteButton(noteName: blowNoteName, noteAsset: blowNoteAsset),
-          const SizedBox(height: 10),
-          NoteButton(noteName: drawNoteName, noteAsset: drawNoteAsset),
+          NoteButton(note: blowNote),
+          NoteButton(note: drawNote),
         ],
       ),
     );
@@ -32,13 +27,11 @@ class HarmonicaHole extends StatelessWidget {
 }
 
 class NoteButton extends StatefulWidget {
-  final String noteName;
-  final String noteAsset;
+  final Note note;
 
   const NoteButton({
     super.key,
-    required this.noteName,
-    required this.noteAsset,
+    required this.note,
   });
 
   @override
@@ -46,39 +39,35 @@ class NoteButton extends StatefulWidget {
 }
 
 class _NoteButtonState extends State<NoteButton> {
-  late AudioPlayerManager _audioManager;
-
-  @override
-  void initState() {
-    super.initState();
-    _audioManager = AudioPlayerManager();
-    _audioManager.preload(widget.noteAsset);
-  }
-
-  @override
-  void dispose() {
-    _audioManager.dispose();
-    super.dispose();
-  }
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
+    final midiPlayer = MidiPlayerManager();
     const textStyle = TextStyle(fontWeight: FontWeight.bold);
-    bool assetAvailable = widget.noteAsset.isNotEmpty;
 
-    return GestureDetector(
-      // check if the asset is available before playing
-      onTapDown: (_) => assetAvailable ? _audioManager.playFromAsset(widget.noteAsset) : null,
-      onTapUp: (_) => _audioManager.stop(),
-      child: Container(
-        width: 50,
-        height: 50,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: assetAvailable ? Colors.white : Colors.grey,
-          borderRadius: BorderRadius.circular(10),
+    return Expanded(
+      child: GestureDetector(
+        onTapDown: (_) {
+          setState(() => _isPressed = true);
+          midiPlayer.playNote(widget.note.midiNote);
+        },
+        onTapUp: (_) {
+          setState(() => _isPressed = false);
+          midiPlayer.stopNote(widget.note.midiNote);
+        },
+        onTapCancel: () {
+          setState(() => _isPressed = false);
+          midiPlayer.stopNote(widget.note.midiNote);
+        },
+        child: Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: _isPressed ? Colors.grey.shade100 : Colors.white,
+            border: Border.all(color: Colors.grey),
+          ),
+          child: Text(widget.note.name, style: textStyle),
         ),
-        child: Text(widget.noteName, style: textStyle),
       ),
     );
   }

@@ -11,31 +11,23 @@ class Harmonica extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
-    final instrument = appState.instrument;
     final scale = appState.scale;
     final blowNotes = scale.blowNotes;
     final drawNotes = scale.drawNotes;
 
-    final blowNotesAssets = blowNotes
-        .map((note) => instrument.notesAssets[note] ?? '')
-        .toList();
-    final drawNotesAssets = drawNotes
-        .map((note) => instrument.notesAssets[note] ?? '')
-        .toList();
-
     final holes = List.generate(
       10,
       (index) => HarmonicaHole(
-        blowNoteAsset: blowNotesAssets[index],
-        drawNoteAsset: drawNotesAssets[index],
-        blowNoteName: blowNotes[index].name,
-        drawNoteName: drawNotes[index].name,
+        blowNote: blowNotes[index],
+        drawNote: drawNotes[index],
       ),
     );
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: holes,
+    return Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: holes,
+      ),
     );
   }
 }

@@ -361,80 +361,37 @@ enum Scale {
   final List<Note> drawNotes;
 }
 
-enum Instrument {
-  Flute({
-    Note.C4: 'sounds/flute/flute_C4_1_piano_normal.mp3',
-    Note.Cs4: 'sounds/flute/flute_Cs4_1_piano_normal.mp3',
-    Note.Df4: 'sounds/flute/flute_Cs4_1_piano_normal.mp3',
-    Note.D4: 'sounds/flute/flute_D4_1_piano_normal.mp3',
-    Note.Ds4: 'sounds/flute/flute_Ds4_1_piano_normal.mp3',
-    Note.Ef4: 'sounds/flute/flute_Ds4_1_piano_normal.mp3',
-    Note.E4: 'sounds/flute/flute_E4_1_piano_normal.mp3',
-    Note.F4: 'sounds/flute/flute_F4_1_piano_normal.mp3',
-    Note.Fs4: 'sounds/flute/flute_Fs4_1_piano_normal.mp3',
-    Note.Gf4: 'sounds/flute/flute_Fs4_1_piano_normal.mp3',
-    Note.G4: 'sounds/flute/flute_G4_1_piano_normal.mp3',
-    Note.Gs4: 'sounds/flute/flute_Gs4_1_piano_normal.mp3',
-    Note.Af4: 'sounds/flute/flute_Gs4_1_piano_normal.mp3',
-    Note.A4: 'sounds/flute/flute_A4_1_piano_normal.mp3',
-    Note.As4: 'sounds/flute/flute_As4_1_piano_normal.mp3',
-    Note.Bf4: 'sounds/flute/flute_As4_1_piano_normal.mp3',
-    Note.B4: 'sounds/flute/flute_B4_1_piano_normal.mp3',
-    Note.C5: 'sounds/flute/flute_C5_1_piano_normal.mp3',
-    Note.Cs5: 'sounds/flute/flute_Cs5_1_piano_normal.mp3',
-    Note.Df5: 'sounds/flute/flute_Cs5_1_piano_normal.mp3',
-    Note.D5: 'sounds/flute/flute_D5_1_piano_normal.mp3',
-    Note.Ds5: 'sounds/flute/flute_Ds5_1_piano_normal.mp3',
-    Note.Ef5: 'sounds/flute/flute_Ds5_1_piano_normal.mp3',
-    Note.E5: 'sounds/flute/flute_E5_1_piano_normal.mp3',
-    Note.Es5: 'sounds/flute/flute_F5_1_piano_normal.mp3',
-    Note.F5: 'sounds/flute/flute_F5_1_piano_normal.mp3',
-    Note.Fs5: 'sounds/flute/flute_Fs5_1_piano_normal.mp3',
-    Note.Gf5: 'sounds/flute/flute_Fs5_1_piano_normal.mp3',
-    Note.G5: 'sounds/flute/flute_G5_1_piano_normal.mp3',
-    Note.Gs5: 'sounds/flute/flute_Gs5_1_piano_normal.mp3',
-    Note.Af5: 'sounds/flute/flute_Gs5_1_piano_normal.mp3',
-    Note.A5: 'sounds/flute/flute_A5_1_piano_normal.mp3',
-    Note.As5: 'sounds/flute/flute_As5_1_piano_normal.mp3',
-    Note.Bf5: 'sounds/flute/flute_As5_1_piano_normal.mp3',
-    Note.B5: 'sounds/flute/flute_B5_1_piano_normal.mp3',
-    Note.C6: 'sounds/flute/flute_C6_1_mezzo-piano_normal.mp3',
-    Note.Cs6: 'sounds/flute/flute_Cs6_1_piano_normal.mp3',
-    Note.Df6: 'sounds/flute/flute_Cs6_1_piano_normal.mp3',
-    Note.D6: 'sounds/flute/flute_D6_1_piano_normal.mp3',
-    Note.Ds6: 'sounds/flute/flute_Ds6_1_piano_normal.mp3',
-    Note.Ef6: 'sounds/flute/flute_Ds6_1_piano_normal.mp3',
-    Note.E6: 'sounds/flute/flute_E6_1_piano_normal.mp3',
-    Note.Es6: 'sounds/flute/flute_F6_1_piano_normal.mp3',
-    Note.F6: 'sounds/flute/flute_F6_1_piano_normal.mp3',
-    Note.Fs6: 'sounds/flute/flute_Fs6_1_piano_normal.mp3',
-    Note.Gf6: 'sounds/flute/flute_Fs6_1_piano_normal.mp3',
-    Note.G6: 'sounds/flute/flute_G6_1_piano_normal.mp3',
-    Note.Gs6: 'sounds/flute/flute_Gs6_1_piano_normal.mp3',
-    Note.Af6: 'sounds/flute/flute_Gs6_1_piano_normal.mp3',
-    Note.A6: 'sounds/flute/flute_A6_1_piano_normal.mp3',
-    Note.As6: 'sounds/flute/flute_As6_1_piano_normal.mp3',
-    Note.Bf6: 'sounds/flute/flute_As6_1_piano_normal.mp3',
-    Note.B6: 'sounds/flute/flute_B6_1_piano_normal.mp3',
-    Note.C7: 'sounds/flute/flute_C7_1_piano_normal.mp3',
-    Note.Cs7: 'sounds/flute/flute_Cs7_1_piano_normal.mp3',
-    Note.Df7: 'sounds/flute/flute_Cs7_1_piano_normal.mp3',
-    Note.D7: 'sounds/flute/flute_D7_1_piano_normal.mp3',
-    Note.Ds7: 'sounds/flute/flute_Ds7_1_piano_normal.mp3',
-    Note.Ef7: 'sounds/flute/flute_Ds7_1_piano_normal.mp3',
-    Note.E7: 'sounds/flute/flute_E7_1_piano_normal.mp3',
-    Note.F7: 'sounds/flute/flute_F7_1_forte_normal.mp3',
-    Note.Fs7: 'sounds/flute/flute_Fs7_1_piano_normal.mp3',
-    Note.Gf7: 'sounds/flute/flute_Fs7_1_piano_normal.mp3',
-    Note.G7: 'sounds/flute/flute_G7_1_piano_normal.mp3',
-    Note.Gs7: 'sounds/flute/flute_Gs7_1_piano_normal.mp3',
-    Note.Af7: 'sounds/flute/flute_Gs7_1_piano_normal.mp3',
-    Note.A7: 'sounds/flute/flute_A7_1_piano_normal.mp3',
-    Note.As7: 'sounds/flute/flute_As7_1_piano_normal.mp3',
-    Note.Bf7: 'sounds/flute/flute_As7_1_piano_normal.mp3',
-    Note.B7: 'sounds/flute/flute_B7_1_piano_normal.mp3',
-  });
+enum VirtualInsrument {
+  NineFootGrand(
+      'Nine-foot Grand', 'assets/soundfonts/piano/nine-foot-grand-piano.sf2'),
+  PianoAndStrings(
+      'Piano and Strings', 'assets/soundfonts/piano/piano-and-strings.sf2'),
+  RockOrgan('Rock Organ', 'assets/soundfonts/piano/rock-organ.sf2'),
+  Harmonica('Harmonica', 'assets/soundfonts/harmonica/astral-harmonica.sf2'),
+  Violin('Violin', 'assets/soundfonts/strings/violin.sf2'),
+  Trumpet('Best Trumpet', 'assets/soundfonts/brass/best-trumpet.sf2'),
+  JLTrumpet('JL Trumpet', 'assets/soundfonts/brass/jl-trumpet.sf2'),
+  DCsMellotronFlute('DCs Mellotron Flute', 'assets/soundfonts/flute/dcs-mellotron-flute.sf2');
 
-  const Instrument(this.notesAssets);
-  final Map<Note, String> notesAssets;
+  const VirtualInsrument(this.name, this.soundFontAssetPath);
+  final String name;
+  final String soundFontAssetPath;
+}
+
+enum Instrument {
+  Piano('Piano', 'assets/icons/piano.png', [
+    VirtualInsrument.NineFootGrand,
+    VirtualInsrument.PianoAndStrings,
+    VirtualInsrument.RockOrgan
+  ]),
+  Harmonica(
+      'Harmonica', 'assets/icons/harmonica.png', [VirtualInsrument.Harmonica]),
+  Strings('Strings', 'assets/icons/cello.png', [VirtualInsrument.Violin]),
+  Trumpet('Trumpet', 'assets/icons/trumpet.png', [VirtualInsrument.Trumpet, VirtualInsrument.JLTrumpet]),
+  Mellotron('Mellotron', 'assets/icons/recorder.png', [VirtualInsrument.DCsMellotronFlute]);
+
+  const Instrument(this.name, this.iconAssetPath, this.virtualInstruments);
+  final String name;
+  final String iconAssetPath;
+  final List<VirtualInsrument> virtualInstruments;
 }

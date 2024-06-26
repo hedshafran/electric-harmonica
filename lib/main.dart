@@ -9,6 +9,7 @@ void main() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
   ]);
+  // also make the app full screen
   runApp(const MyApp());
 }
 

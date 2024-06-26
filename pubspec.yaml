@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   provider: ^6.0.0
   audioplayers: ^6.0.0
-  flutter_midi: ^1.1.0
+  flutter_midi_pro: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -62,50 +62,24 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - assets/soundfonts/nine_foot_grand_piano.sf2
+  - assets/icons/piano.png
+  - assets/icons/harmonica.png
+  - assets/icons/cello.png
+  - assets/icons/trumpet.png
+  - assets/icons/recorder.png
 
-  - assets/sounds/flute/flute_A4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_As4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_A5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_As5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_A6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_As6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_B4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_B5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_B6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_C4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Cs4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_C5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Cs5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_C6_1_mezzo-piano_normal.mp3
-  - assets/sounds/flute/flute_Cs6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_C7_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Cs7_1_piano_normal.mp3
-  - assets/sounds/flute/flute_D4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Ds4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_D5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Ds5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_D6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Ds6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_D7_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Ds7_1_piano_normal.mp3
-  - assets/sounds/flute/flute_E4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_E5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_E6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_E7_1_piano_normal.mp3
-  - assets/sounds/flute/flute_F4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Fs4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_F5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Fs5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_F6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Fs6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_F7_1_forte_normal.mp3
-  - assets/sounds/flute/flute_G4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Gs4_1_piano_normal.mp3
-  - assets/sounds/flute/flute_G5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Gs5_1_piano_normal.mp3
-  - assets/sounds/flute/flute_G6_1_piano_normal.mp3
-  - assets/sounds/flute/flute_Gs6_1_piano_normal.mp3
+  - assets/soundfonts/piano/nine-foot-grand-piano.sf2
+  - assets/soundfonts/piano/piano-and-strings.sf2
+  - assets/soundfonts/piano/rock-organ.sf2
+
+  - assets/soundfonts/harmonica/astral-harmonica.sf2
+
+  - assets/soundfonts/strings/violin.sf2
+
+  - assets/soundfonts/brass/best-trumpet.sf2
+  - assets/soundfonts/brass/jl-trumpet.sf2
+
+  - assets/soundfonts/flute/dcs-mellotron-flute.sf2
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
